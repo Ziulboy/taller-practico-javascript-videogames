@@ -12,6 +12,11 @@ const playerPosition = {
     x: undefined,
     y: undefined,
 }
+const giftPosition = {
+    x: undefined,
+    y: undefined,
+};
+let enemyPositions = [];
 
 window.addEventListener("load", setCanvassize);
 window.addEventListener("resize", setCanvassize);
@@ -42,6 +47,7 @@ function startGame () {
     const mapRowsCols = mapRows.map(row => row.trim().split(""));
     console.log({map, mapRows, mapRowsCols});
 
+    enemyPositions = [];
     game.clearRect(0,0,canvasSize, canvasSize);
     mapRowsCols.forEach((row, rowI) => {
         row.forEach((col, colI) => {
@@ -53,18 +59,45 @@ function startGame () {
                 if (!playerPosition.x && !playerPosition.y) {
                     playerPosition.x = posX
                     playerPosition.y = posY
+                    console.log({playerPosition});
                 }
+            } else if (col == "I") {
+                giftPosition.x = posX;
+                giftPosition.y = posY;
+            } else if (col == "X") {
+                enemyPositions.push({
+                    x: posX,
+                    y: posY,
+                })
             }
 
             game.fillText(emoji, posX, posY);
         })
     });
 
- 
     movePlayer(); 
 }
 
+
 function movePlayer() {
+    const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
+    const giftCollisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
+    const giftCollision = giftCollisionX && giftCollisionY;
+
+    if (giftCollision) {
+        console.log("cambiaste de nivel")
+    }
+
+    const enemyCollision = enemyPositions.find(enemy => {
+        const enemyCollisionX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
+        const enemyCollisionY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
+        return enemyCollisionX && enemyCollisionY;
+    });
+
+    if (enemyCollision) {
+        console.log("chocaste con un enemigo")
+    }
+
     game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y)
 }
 
