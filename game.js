@@ -165,7 +165,7 @@ function gameWin() {
             }
         } else {
             localStorage.setItem("record_time", playerTime)
-            pResult.innerHTML = "Primera vez? muy bien,pero ahora trata de superar tu tiempo";
+            pResult.innerHTML = "Primera vez? muy bien,pero trata de superar tu tiempo";
         }
 
     console.log({recorTime, playerTime});
