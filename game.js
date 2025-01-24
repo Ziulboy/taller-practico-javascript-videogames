@@ -33,15 +33,18 @@ window.addEventListener("resize", setCanvassize);
 
 function setCanvassize() {
     if (window.innerHeight > window.innerWidth) {
-        canvasSize = window.innerWidth * 0.8;
+        canvasSize = window.innerWidth * 0.7;
     } else {
-        canvasSize = window.innerHeight * 0.8;
+        canvasSize = window.innerHeight * 0.7;
     }
     
     canvas.setAttribute("width", canvasSize)
     canvas.setAttribute("height", canvasSize)
 
     elementsSize = canvasSize /10;
+
+    playerPosition.x = undefined
+    playerPosition.y = undefined
 
     startGame();
 }
@@ -162,7 +165,7 @@ function gameWin() {
             }
         } else {
             localStorage.setItem("record_time", playerTime)
-            pResult.innerHTML = "Primera vez? pero ahora,trata de superar tu tiempo";
+            pResult.innerHTML = "Primera vez? sigue jugado y trata de superar tu tiempo";
         }
 
     console.log({recorTime, playerTime});
