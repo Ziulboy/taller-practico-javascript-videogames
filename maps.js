@@ -15,7 +15,7 @@ const emojis = {
     'HEART': '🤍',
   };
   
-  const maps = [];
+  const maps = [];  //NIVEL 1//
   maps.push(`
     IXXXXXXXXX
     -XXXXXXXXX
@@ -28,7 +28,7 @@ const emojis = {
     -XXXXXXXXX
     OXXXXXXXXX
   `);
-  maps.push(`
+  maps.push(`     
     O--XXXXXXX
     X--XXXXXXX
     XX----XXXX
@@ -51,4 +51,40 @@ const emojis = {
     XX-XXXXXXX
     XX-----OXX
     XXXXXXXXXX
+  `);
+  maps.push(`
+    O-----XXXX
+    XX--X-XXXX
+    XX----XXXX
+    XXXXX-XXXX
+    XX-X---XXX
+    XXXX-X-XXX
+    XXX-X--XXX
+    XX-X-X-XXX
+    XX-X---XXX
+    XXXXIXXXXX
+  `);
+  maps.push(`
+    X--------I
+    XX-XXXXXXX
+    XX----XXXX
+    XXXXX-XXXX
+    XX-XX-XXXX
+    XXX-X--XXX
+    XXX---XXXX
+    XX--XXXXXX
+    XXX--XXXXX
+    XXXXOXXXXX
+  `);
+  maps.push(`
+    XXX-X-X--O
+    XXXXX-X-XX
+    XX----X-XX
+    XX-XX---XX
+    XX-XXX--XX
+    X--XXX-XXX
+    X-XX--XXXX
+    X--XXXXXXX
+    XX-----XXX
+    I--XXXXXXX
   `);

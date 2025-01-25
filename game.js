@@ -8,6 +8,7 @@ const spanLives = document.querySelector("#lives")
 const spanTime = document.querySelector("#time")
 const spanRecord = document.querySelector("#record")
 const pResult = document.querySelector("#result")
+const btnReiniciar = document.querySelector("#reset")
 
 let canvasSize;
 let elementsSize; 
@@ -33,10 +34,12 @@ window.addEventListener("resize", setCanvassize);
 
 function setCanvassize() {
     if (window.innerHeight > window.innerWidth) {
-        canvasSize = window.innerWidth * 0.7;
+        canvasSize = Math.ceil(window.innerWidth * 0.7);
     } else {
         canvasSize = window.innerHeight * 0.7;
     }
+
+    canvasSize = Number(canvasSize.toFixed(0));
     
     canvas.setAttribute("width", canvasSize)
     canvas.setAttribute("height", canvasSize)
@@ -142,6 +145,7 @@ function levelFail() {
         level = 0;
         lives = 3;
         timeStart = undefined;
+        clearInterval(timeInterval);
     }
 
     playerPosition.x = undefined
@@ -169,6 +173,7 @@ function gameWin() {
         }
 
     console.log({recorTime, playerTime});
+    
 }
 
 function showLives() {
@@ -222,7 +227,7 @@ function moveLeft() {
 }
 function moveRight() {
     console.log("Me quiero mover hacia derecha")
-    if ((playerPosition.x +elementsSize) > canvasSize) {
+    if (Math.ceil(playerPosition.x +elementsSize) > canvasSize) {
         console.log("OUT")
     } else {
         playerPosition.x += elementsSize;

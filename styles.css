@@ -1,5 +1,5 @@
 body {
-    background-color: indigo;
+    background-color: black;
     color: #fff;
     font-family: verdana, Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
@@ -16,9 +16,9 @@ body {
 }
 
 canvas {
-    border: 4px solid #ff6600;
+    border: 4px solid red;
     border-radius: 8px;
-    background-color: #feff9d;
+    background-color: whitesmoke;
 }
 
 .btns {
