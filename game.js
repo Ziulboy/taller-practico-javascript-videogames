@@ -71,6 +71,9 @@ function startGame () {
         showRecord();
     }
 
+    let sectionReiniciar = document.getElementById("reset")
+    sectionReiniciar.style.display = "none"
+
     const mapRows = map.trim().split("\n");
     const mapRowsCols = mapRows.map(row => row.trim().split(""));
     console.log({map, mapRows, mapRowsCols});
@@ -154,8 +157,13 @@ function levelFail() {
 }
 
 function gameWin() {
+    btnReiniciar.style.display ="none"
+
     console.log("terminaste el juego")
     clearInterval(timeInterval);
+
+    let sectionReiniciar = document.getElementById("reset")
+    sectionReiniciar.style.display = "block"
 
     const recorTime = localStorage.getItem("record_time");
     const playerTime = Date.now() - timeStart;
@@ -199,6 +207,8 @@ btnUp.addEventListener("click", moveUp);
 btnLeft.addEventListener("click", moveLeft);
 btnRight.addEventListener("click", moveRight);
 btnDown.addEventListener("click", moveDown);
+
+btnReiniciar.addEventListener("click", reiniciarJuego);
 
 function moveByKeys(event) {
     if (event.key == "ArrowUp") moveUp();
@@ -244,3 +254,7 @@ function moveDown() {
     }
 }
 
+
+function reiniciarJuego() {
+    location.reload()
+}
